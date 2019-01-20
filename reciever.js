@@ -21,6 +21,9 @@ const constraints = {
     }
 };
 
+
+
+
 function notEmpty(string) {
     return !(string.length === 0 || !string.trim());
 }
@@ -153,8 +156,9 @@ peer.on('open', function() {
         navigator.mediaDevices.getUserMedia(constraints).
         then((stream) => {
             destid = call.peer;
-            call.answer(stream);
+            video1.muted = true;
             video1.srcObject = stream;
+            call.answer(stream);
             call.on('stream', function(remoteStream) {
                 video.srcObject = remoteStream;
                 idtext.style.display = "none";

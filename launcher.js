@@ -154,7 +154,11 @@ initialize();
 function go() {
     navigator.mediaDevices.getUserMedia(constraints).
     then((stream) => {
+        //so that i dont hear my voice repeated   :P
+        video1.muted = true;
         video1.srcObject = stream;
+            console.log(video1);
+
         connecteddiv.style.display = "grid";
         destid.style.display = "none";
         connectbutton.innerHTML = "Connected";
