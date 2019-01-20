@@ -1,0 +1,120 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+body {
+	  background-image: url("img/background.jpg");
+	  background-repeat: no-repeat;
+	  background-attachment: fixed;
+	  display: grid; 
+	  grid-template-rows: 10px 1fr 5px 8fr 10px;
+}
+#connectiondiv{
+	display : grid; 
+	grid-row: 2/3;
+    grid-template-columns: 20px 2fr 10px 1fr 2fr 30px ; 
+}
+#connectiondiv1{
+	display: grid ;
+    justify-content: center;
+	grid-row: 2/3;
+	color : white;
+	font-size: 200%; 
+}
+#destid{
+  grid-column : 2/3;
+  
+}
+#connecteddiv{
+  display: grid; 
+  grid-row: 4/5;
+  grid-template-columns: 20px 1fr 10px 1fr 10px 1fr 20px ; 
+  grid-template-rows: 8px 1fr 8px;
+  grid-template-rows: 1fr;
+}
+input{
+	padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+#senddiv{
+	display: grid ; 
+	grid-template-columns: 4px 3fr 4px 1fr 4px; 
+}
+#inputmessage{
+	grid-column: 2/3;
+}
+#sendbutton{
+	grid-column: 4/5;
+}
+#connectbutton{
+	  grid-column: 4/5 ;
+}
+button:hover {
+  background-color: #0D2C3E;
+}
+#destvid{
+	grid-column: 2/3 ;
+	justify-self: center;
+
+}
+#conversationdiv{
+	overflow-y: scroll;
+	grid-column: 4/5 ;
+	grid-template-columns : 1fr;
+	border: 3px solid #325470;
+    border-radius: 10px;
+    height : 500px;
+    background-color: white ; 
+    justify-self: center;
+        width: -webkit-fill-available; 
+}
+#peervid{
+	grid-column: 6/7;
+	justify-self: center; 
+}
+video{
+   border: 3px solid #325470;
+   border-radius: 10px;
+}
+#recievermsg{
+	color : white;
+}
+.recievedmsg{
+   border-radius: 10px;
+   background-color: #8a9094;
+   padding : 6px;
+   display: inline-block;
+   margin: 1px;
+   text-align:left ; 
+
+}
+.sentmsg {
+    border-radius: 10px;
+    background-color: #1C3B4F;
+    height: 20px;
+    padding : 6px;
+    display: inline-block ; 
+    margin: 1px;
+    text-align:right;
+}
+.messages , .messager {
+	margin-left :10px;
+	margin-right :10px;
+}
+.messages{
+    text-align:right;
+
+}
+button{
+	  background-color: #335672 ; 
+	  color: white;
+	  padding: 14px 20px;
+	  margin: 8px 0;
+	  border: none;
+	  border-radius: 4px;
+	  cursor: pointer;
+}

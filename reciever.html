@@ -3,113 +3,28 @@
 <head>
 	<title>reciever</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/0.3.16/peer.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+
 </head>
 <body>
- <p id ="idtext"></p>
-<video autoplay></video>
-    
+<div id="connectiondiv1">
+ 	<p id ="idtext"></p>
+ 	<button id="connectbutton"  style="display: none ; ">Connected</button>
+</div>
+ <div id="connecteddiv">
+	<video id="destvid" autoplay></video>
+	<div id="conversationdiv">
+		<div id="senddiv"><input type="text" id="inputmessage"><button id="sendbutton">SEND</button></div>
+		<div id = "recievermsg">
+		</div>
+	</div>
+	<video id="peervid"  align="center" autoplay></video>
+</div>
 
 </body>
+<script src="reciever.js"></script>
+
 <script type="text/javascript">
-	var peer = null;
-	const video = document.querySelector('video');
-	var peerId =null ; 
-	const constraints = {
-	   audio: true,
-	   video: {
-			    width: { min: 200, ideal: 500, max: 1920 },
-			    height: { min: 200, ideal: 500, max: 1080 }
-	       }
-	};
-
- //var getUserMedia = navigator.mediaDevices.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
- 
- function hasGetUserMedia() {
-	  return !!(navigator.mediaDevices &&
-	    navigator.mediaDevices.getUserMedia);
-	}
-
-	if (hasGetUserMedia()) {
-	  // Good to go!
-	} else {
-	  alert('getUserMedia() is not supported by your browser');
-	}
-
-	function initialize() {
-           //peer = new Peer (); 
-            peer = new Peer ({
-   config : { 'iceServers' : [ {url:'stun:stun01.sipphone.com'},
-                               {url:'stun:stun.ekiga.net'},
-                               {url:'stun:stun.fwdnet.net'},
-                               {url:'stun:stun.ideasip.com'},
-                               {url:'stun:stun.iptel.org'},
-                               {url:'stun:stun.rixtelecom.se'},
-                               {url:'stun:stun.schlund.de'},
-                               {url:'stun:stun.l.google.com:19302'},
-                               {url:'stun:stun1.l.google.com:19302'},
-                               {url:'stun:stun2.l.google.com:19302'},
-                               {url:'stun:stun3.l.google.com:19302'},
-                               {url:'stun:stun4.l.google.com:19302'},
-                               {url:'stun:stunserver.org'},
-                               {url:'stun:stun.softjoys.com'},
-                               {url:'stun:stun.voiparound.com'},
-                               {url:'stun:stun.voipbuster.com'},
-                               {url:'stun:stun.voipstunt.com'},
-                               {url:'stun:stun.voxgratia.org'},
-                               {url:'stun:stun.xten.com'},
-                               {
-                                   'url': 'turn:numb.viagenie.ca',
-                                   'credential': 'muazkh',
-                                   'username': 'webrtc@live.com'
-                               },
-                               {
-                                   'url': 'turn:192.158.29.39:3478?transport=udp',
-                                   'credential': 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
-                                   'username': '28224511:1379330808'
-                               },
-                               {
-                                   'url': 'turn:192.158.29.39:3478?transport=tcp',
-                                   'credential': 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
-                                   'username': '28224511:1379330808'
-                               }]}
-                 }); 
-	       peer.on('open', function (id) {
-	           peerId = id;
-	           idtext.innerHTML = "My ID is  : " + id;  
-	           console.log('ID: ' + id);
-	       }); 
-	       peer.on('error', function (err) {
-	           if (err.type === 'unavailable-id') {
-	               alert('' + err);
-	               peer.reconnect();
-	           }
-	           else
-	               alert('' + err);
-	       });
-     };
-    initialize();  
-    peer.on('call', function(call) {
-
-    navigator.mediaDevices.getUserMedia(constraints).
-	  then((stream) => {
-        call.answer(stream); // Answer the call with an A/V stream.
-		  call.on('stream', function(remoteStream) {
-         video.srcObject = remoteStream;
-
-      // Show stream in some video/canvas element.
-    });
-	  });
-/*
-    getUserMedia({video: true, audio: true}, function(stream) {
-    call.answer(stream); // Answer the call with an A/V stream.
-    call.on('stream', function(remoteStream) {
-    video.srcObject = remoteStream;
-
-      // Show stream in some video/canvas element.
-    });
-  }, function(err) {
-    console.log('Failed to get local stream' ,err);
-  });*/
-});
+	
 </script>
 </html>
