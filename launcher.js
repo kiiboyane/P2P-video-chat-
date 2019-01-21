@@ -12,16 +12,8 @@ var peer = null;
 const constraints = {
     audio: true,
     video: {
-        width: {
-            min: 200,
-            ideal: 500,
-            max: 1920
-        },
-        height: {
-            min: 200,
-            ideal: 500,
-            max: 1080
-        }
+        width:500,
+        height: 500
     }
 };
 

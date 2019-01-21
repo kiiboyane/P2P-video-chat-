@@ -22,8 +22,7 @@ body {
 	font-size: 200%; 
 }
 #destid{
-  grid-column : 2/3;
-  
+  grid-column: 2/3;  
 }
 #connecteddiv{
   display: grid; 
@@ -44,6 +43,10 @@ input{
 	display: grid ; 
 	grid-template-columns: 4px 3fr 4px 1fr 4px; 
 }
+video{
+  transform: scale(-1, 1);            /*For Firefox (& IE) */
+  -webkit-transform: scale(-1, 1); 
+}
 #inputmessage{
 	grid-column: 2/3;
 }
@@ -57,7 +60,7 @@ button:hover {
   background-color: #0D2C3E;
 }
 #destvid{
-	grid-column: 2/3 ;
+	grid-column: 6/7 ;
 	justify-self: center;
 
 }
@@ -73,7 +76,7 @@ button:hover {
         width: -webkit-fill-available; 
 }
 #peervid{
-	grid-column: 6/7;
+  grid-column: 2/3 ;
 	justify-self: center; 
 }
 video{
