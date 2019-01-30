@@ -53,6 +53,7 @@ function sendandrecieve() {
 function initialize() {
     //peer = new Peer (); 
     peer = new Peer({
+         host:'peerjs-server.herokuapp.com', secure:true, port:443,
         config: {
             'iceServers': [{
                     url: 'stun:stun01.sipphone.com'

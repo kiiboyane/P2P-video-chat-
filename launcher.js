@@ -34,6 +34,7 @@ function notEmpty(string) {
 
 function initialize() {
     peer = new Peer({
+         host:'peerjs-server.herokuapp.com', secure:true, port:443,
         config: {
             'iceServers': [{
                     url: 'stun:stun01.sipphone.com'
